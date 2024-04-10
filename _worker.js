@@ -4,10 +4,10 @@ addEventListener('scheduled', event => {
 
 async function triggerDeploy() {
   // 环境变量定义
-  const authKey = process.env.API_TOKEN;  // 认证密钥
-  const email = process.env.CF_EMAIL || ACCOUNT.email || USER.email;  // 获取 email 信息，优先使用环境变量
-  const accountID = process.env.ACCOUNT_ID || ACCOUNT.id; // 获取账户 ID，优先使用环境变量
-  const scriptID = process.env.SCRIPTS_ID || "dingyueqi"; // workers应用"dingyueqi"的scriptID
+  const authKey = env.API_TOKEN;  // 认证密钥
+  const email = env.CF_EMAIL || ACCOUNT.email || USER.email;  // 获取 email 信息，优先使用环境变量
+  const accountID = env.ACCOUNT_ID || ACCOUNT.id; // 获取账户 ID，优先使用环境变量
+  const scriptID = env.SCRIPTS_ID || "dingyueqi"; // workers应用"dingyueqi"的scriptID
 
   const cloudflareApiBaseUrl = 'https://api.cloudflare.com/client/v4'; // Cloudflare API 基础 URL
   const cronExpression = '*/10 * * * *'; // cron 表达式，表示每十分钟执行一次部署操作
